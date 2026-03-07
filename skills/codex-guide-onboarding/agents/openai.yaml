@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Onboarding"
+  short_description: "Interactive first-run guide for Codex"
+  default_prompt: "Use $codex-guide-onboarding to walk me through setting up and using Codex effectively in this repo."

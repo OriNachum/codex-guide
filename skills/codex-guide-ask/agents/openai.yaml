@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Guide Q&A"
+  short_description: "Answer Codex workflow questions from local docs"
+  default_prompt: "Use $codex-guide-ask to answer my question about Codex setup, workflow, or skills using the local guide references."
