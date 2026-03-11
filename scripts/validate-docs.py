@@ -10,6 +10,7 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SKILLS_DIR = ROOT / "skills"
 LINK_RE = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
+WINDOWS_ABS_RE = re.compile(r"^[A-Za-z]:[\\/]")
 
 
 def fail(message: str) -> None:
@@ -50,7 +51,19 @@ def validate_markdown_links(markdown_file: pathlib.Path) -> None:
         if not path_part:
             continue
 
+        if path_part.startswith("/") or WINDOWS_ABS_RE.match(path_part):
+            fail(
+                f"{markdown_file.relative_to(ROOT)} uses absolute filesystem link "
+                f"{path_part}; use a repo-relative path or https URL"
+            )
+
         resolved = (markdown_file.parent / path_part).resolve()
+        if ROOT not in (resolved, *resolved.parents):
+            fail(
+                f"{markdown_file.relative_to(ROOT)} links outside the repo "
+                f"{path_part}; use a repo-relative path or https URL"
+            )
+
         if not resolved.exists():
             fail(
                 f"{markdown_file.relative_to(ROOT)} links to missing path "

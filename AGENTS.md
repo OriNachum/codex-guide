@@ -16,7 +16,7 @@ There is no build pipeline yet. Use these baseline commands while contributing:
 
 - `git status` - check local changes before and after edits.
 - `git diff` - review exact modifications.
-- `markdownlint "**/*.md"` - lint Markdown if `markdownlint` is installed.
+- `markdownlint-cli2 "**/*.md"` - lint Markdown; `markdownlint-cli2` auto-loads the repo default config from `.markdownlint-cli2.yaml`.
 - `python3 scripts/validate-docs.py` - verify skill structure and local Markdown links.
 - `vale .` - optional prose/style linting if configured locally.
 

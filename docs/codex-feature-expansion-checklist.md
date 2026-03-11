@@ -28,5 +28,5 @@ with both `claude-code-guide` overlap areas and the official OpenAI Codex docs.
 ## Verification
 
 - [x] Update the README and ask-skill reference map to include the new pages
-- [x] Run `markdownlint`
+- [x] Run `markdownlint-cli2`
 - [x] Run local skill and docs validation

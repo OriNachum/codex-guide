@@ -46,7 +46,10 @@ codex-guide/
 │   ├── codex-feature-expansion-checklist.md
 │   └── openai-docs-gap-summary.md
 ├── .github/
+│   ├── prompts/
+│   │   └── codex-docs-autofix.md
 │   └── workflows/
+│       ├── codex-docs-autofix.yml
 │       └── docs-validation.yml
 └── skills/
     ├── codex-guide-onboarding/
@@ -88,12 +91,21 @@ codex-guide/
 Local docs checks:
 
 ```bash
-markdownlint "**/*.md"
+markdownlint-cli2 "**/*.md"
 python3 scripts/validate-docs.py
 ```
 
-GitHub Actions also runs the same docs validation workflow manually on
-`workflow_dispatch` and nightly on a cron schedule.
+GitHub Actions runs `Docs Validation` manually on `workflow_dispatch` and
+nightly on a cron schedule.
+
+If `Docs Validation` fails on the default branch, `Codex Docs Autofix` runs
+`openai/codex-action@v1`, reruns the same checks, and opens or updates a PR with
+the minimal repo-local fix.
+
+The Codex workflow requires:
+
+- an `OPENAI_API_KEY` repository secret
+- GitHub Actions permissions that allow the workflow to create pull requests
 
 ## License
 

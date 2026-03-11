@@ -52,6 +52,10 @@ workflows.
 - recurring audits of repo instructions and guide content
 - manual on-demand maintenance runs
 
+In `codex-guide`, that maps cleanly to a failure-triggered remediation workflow:
+`Docs Validation` stays deterministic, and `Codex Docs Autofix` uses
+`openai/codex-action@v1` to repair a failed run and open a PR.
+
 ## Recommended framing
 
 If the user wants Codex in CI, point them to:

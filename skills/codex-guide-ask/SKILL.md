@@ -28,7 +28,7 @@ Read only what is relevant:
 | `references/agents-md-advanced.md` | Layering, overrides, fallback filenames, and advanced `AGENTS.md` behavior |
 | `references/sandbox-and-approvals.md` | How Codex command execution and approvals shape workflow |
 | `references/best-practices.md` | Prompting, planning, verification, diff review, and iteration habits |
-| `references/markdown-verification.md` | How this repo uses `markdownlint` and Markdown verification |
+| `references/markdown-verification.md` | How this repo uses `markdownlint-cli2` and Markdown verification |
 | `references/skills.md` | What Codex skills are, where they live, and when they are worth creating |
 | `references/mcp.md` | How Codex connects to MCP servers and when MCP is worth using |
 | `references/multi-agents.md` | Experimental parallel multi-agent workflows in Codex CLI |

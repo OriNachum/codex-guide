@@ -29,7 +29,7 @@ Replace the parts that are product-specific:
 
 ### 1. Plugin packaging is the wrong target
 
-`claude-code-guide` is framed as a plugin from the first lines of the repo and README. That assumption appears in install steps, repo structure, and extension docs. See [README.md](/home/spark/git/claude-code-guide/README.md#L3), [README.md](/home/spark/git/claude-code-guide/README.md#L5), [README.md](/home/spark/git/claude-code-guide/README.md#L70), and [CLAUDE.md](/home/spark/git/claude-code-guide/CLAUDE.md#L9).
+`claude-code-guide` is framed as a plugin from the first lines of the repo and README. That assumption appears in install steps, repo structure, and extension docs. Relevant source locations in the original repo include `README.md` lines 3, 5, and 70 plus `CLAUDE.md` line 9.
 
 In this local Codex environment, the native extension concepts I can verify are:
 
@@ -42,10 +42,10 @@ I do not see a parallel local Codex plugin or marketplace layer. Treat this as a
 
 Large parts of the docs are organized around Claude-only capabilities:
 
-- hooks, skills, and sub agents as the three automation primitives: [automating-your-workflows.md](/home/spark/git/claude-code-guide/skills/guide/ask/references/automating-your-workflows.md#L9)
-- plugin packaging as a first-class distribution mechanism: [plugins.md](/home/spark/git/claude-code-guide/skills/guide/ask/references/plugins.md#L5)
-- built-in slash commands, hooks, sub agents, and built-in tools: [built-ins.md](/home/spark/git/claude-code-guide/skills/guide/ask/references/built-ins.md#L5)
-- custom sub agents and agent teams: [sub-agents.md](/home/spark/git/claude-code-guide/skills/guide/ask/references/sub-agents.md#L5), [team-mode.md](/home/spark/git/claude-code-guide/skills/guide/ask/references/team-mode.md#L5)
+- hooks, skills, and sub agents as the three automation primitives in `skills/guide/ask/references/automating-your-workflows.md` line 9
+- plugin packaging as a first-class distribution mechanism in `skills/guide/ask/references/plugins.md` line 5
+- built-in slash commands, hooks, sub agents, and built-in tools in `skills/guide/ask/references/built-ins.md` line 5
+- custom sub agents and agent teams in `skills/guide/ask/references/sub-agents.md` line 5 and `skills/guide/ask/references/team-mode.md` line 5
 
 That is not a terminology swap. It is a content rewrite.
 
@@ -60,7 +60,7 @@ The onboarding flow assumes:
 - Shift+Tab mode switching
 - permission modes like Accept Edits and bypass permissions
 
-See [skills/guide/onboarding/SKILL.md](/home/spark/git/claude-code-guide/skills/guide/onboarding/SKILL.md#L16), [setting-your-environment.md](/home/spark/git/claude-code-guide/skills/guide/ask/references/setting-your-environment.md#L37), and [starting-to-work.md](/home/spark/git/claude-code-guide/skills/guide/ask/references/starting-to-work.md#L7).
+See the original `skills/guide/onboarding/SKILL.md` line 16, `skills/guide/ask/references/setting-your-environment.md` line 37, and `skills/guide/ask/references/starting-to-work.md` line 7.
 
 For Codex, the onboarding center of gravity should shift to:
 
@@ -72,7 +72,7 @@ For Codex, the onboarding center of gravity should shift to:
 
 ### 4. The ask skill index is tightly coupled to Claude docs
 
-The current ask skill enumerates Claude-specific reference files directly in its prompt contract. See [skills/guide/ask/SKILL.md](/home/spark/git/claude-code-guide/skills/guide/ask/SKILL.md#L16).
+The current ask skill enumerates Claude-specific reference files directly in its prompt contract. See the original `skills/guide/ask/SKILL.md` line 16.
 
 That means the ask skill should be ported last, after the reference tree is redesigned.
 
