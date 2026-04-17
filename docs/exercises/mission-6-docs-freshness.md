@@ -1,10 +1,10 @@
 ---
-title: Mission 6 - Add docs freshness audits
+title: Mission 6 - Add Docs Freshness Audits
 parent: Exercises
 nav_order: 6
 ---
 
-# Mission 6: Add docs freshness audits
+# Mission 6: Add Docs Freshness Audits
 
 ## Objective
 

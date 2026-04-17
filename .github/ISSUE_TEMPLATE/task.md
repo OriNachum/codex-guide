@@ -20,6 +20,6 @@ List the intended files, behaviors, and checks.
 
 ## Verification
 
-```bash
-# Add the commands that should prove this task is complete.
+```text
+Add the commands that should prove this task is complete.
 ```

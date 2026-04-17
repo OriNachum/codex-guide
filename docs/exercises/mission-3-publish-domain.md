@@ -1,10 +1,10 @@
 ---
-title: Mission 3 - Publish the custom domain
+title: Mission 3 - Publish the Custom Domain
 parent: Exercises
 nav_order: 3
 ---
 
-# Mission 3: Publish the custom domain
+# Mission 3: Publish the Custom Domain
 
 ## Objective
 

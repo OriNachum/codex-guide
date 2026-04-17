@@ -1,10 +1,10 @@
 ---
-title: Mission 4 - Improve GitHub issue hygiene
+title: Mission 4 - Improve GitHub Issue Hygiene
 parent: Exercises
 nav_order: 4
 ---
 
-# Mission 4: Improve GitHub issue hygiene
+# Mission 4: Improve GitHub Issue Hygiene
 
 ## Objective
 

@@ -1,10 +1,10 @@
 ---
-title: Mission 5 - Build the introspection skill
+title: Mission 5 - Build the Introspection Skill
 parent: Exercises
 nav_order: 5
 ---
 
-# Mission 5: Build the introspection skill
+# Mission 5: Build the Introspection Skill
 
 ## Objective
 

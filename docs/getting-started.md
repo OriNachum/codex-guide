@@ -12,7 +12,7 @@ Start here if you are new to Codex in a repository.
 ## Core pages
 
 - [Getting started reference](../skills/codex-guide-ask/references/getting-started.md)
-- [Codex onboarding skill](../skills/codex-guide-onboarding/SKILL.md)
+- `codex-guide-onboarding` for an interactive first-run walkthrough inside Codex
 
 ## What to learn first
 

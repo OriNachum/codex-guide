@@ -19,6 +19,6 @@ What should the learner improve or build?
 
 ## Verification
 
-```bash
-# Add the commands or review steps that prove the mission worked.
+```text
+Add the commands or review steps that prove the mission worked.
 ```

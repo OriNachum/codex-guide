@@ -53,5 +53,5 @@ on a real codebase with visible outcomes.
 
 ## Repository use
 
-If you want to install the local skills directly, see the project
-[README](README.md).
+If you want to install the local skills directly, see the
+[project README on GitHub](https://github.com/OriNachum/codex-guide#readme).

@@ -1,4 +1,4 @@
-# Codex docs freshness prompt
+# Codex Docs Freshness Prompt
 
 You are maintaining the `codex-guide` repository.
 

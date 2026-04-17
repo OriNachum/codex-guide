@@ -53,13 +53,30 @@ jobs:
           gh label create docs-freshness --description "Factual Codex docs audit" --color "0e8a16" 2>/dev/null || true
 
       - name: Run Codex freshness audit
-        uses: openai/codex-action@v1
+        uses: openai/codex-action@c25d10f3f498316d4b2496cc4c6dd58057a7b031
         env:
           GH_TOKEN: ${{ github.token }}
         with:
           openai-api-key: ${{ secrets.OPENAI_API_KEY }}
           prompt-file: .github/prompts/codex-docs-freshness.md
           sandbox: workspace-write
+
+      - name: Validate changed files are limited to references
+        run: |
+          allowed_prefix='skills/codex-guide-ask/references/'
+          changed_files="$(git diff --name-only)"
+
+          if [ -z "$changed_files" ]; then
+            exit 0
+          fi
+
+          disallowed_files="$(printf '%s\n' "$changed_files" | grep -v "^${allowed_prefix}" || true)"
+
+          if [ -n "$disallowed_files" ]; then
+            echo "Codex modified files outside the allowed directory: ${allowed_prefix}" >&2
+            printf '%s\n' "$disallowed_files" >&2
+            exit 1
+          fi
 
       - name: Run markdownlint-cli2
         run: markdownlint-cli2 "**/*.md"
@@ -71,7 +88,7 @@ jobs:
         run: bundle exec jekyll build
 
       - name: Create pull request when repo changed
-        uses: peter-evans/create-pull-request@v8
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: codex/docs-freshness

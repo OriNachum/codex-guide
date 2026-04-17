@@ -1,10 +1,10 @@
 ---
-title: Mission 2 - Add the site skeleton
+title: Mission 2 - Add the Site Skeleton
 parent: Exercises
 nav_order: 2
 ---
 
-# Mission 2: Add the site skeleton
+# Mission 2: Add the Site Skeleton
 
 ## Objective
 

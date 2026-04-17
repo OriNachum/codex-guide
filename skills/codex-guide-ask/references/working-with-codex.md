@@ -1,5 +1,5 @@
 ---
-title: Working with Codex
+title: Working with Codex Reference
 parent: Working with Codex
 nav_order: 1
 ---

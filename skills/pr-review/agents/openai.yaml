@@ -1,0 +1,4 @@
+interface:
+  display_name: "PR Review"
+  short_description: "Collect and address PR feedback from bots and checks"
+  default_prompt: "Use $pr-review to pull all feedback for the current PR, dedupe it, fix what belongs in scope, create follow-up issues for the rest, and reply or resolve review threads."
