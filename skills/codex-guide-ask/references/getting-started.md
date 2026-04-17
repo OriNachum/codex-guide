@@ -1,3 +1,9 @@
+---
+title: Getting started reference
+parent: Getting Started
+nav_order: 1
+---
+
 # Getting started
 
 If you are new to Codex in a repository, focus on three things first:

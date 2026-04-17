@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Codex Guide site
+    url: https://codex.agentic-guides.com
+    about: Read the published guide before filing issues that are already documented.

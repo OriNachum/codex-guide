@@ -1,3 +1,9 @@
+---
+title: AGENTS.md advanced
+parent: Configuration and Safety
+nav_order: 2
+---
+
 # AGENTS.md advanced
 
 Codex does more than read one top-level `AGENTS.md`.

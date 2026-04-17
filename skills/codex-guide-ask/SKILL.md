@@ -31,6 +31,7 @@ Read only what is relevant:
 | `references/markdown-verification.md` | How this repo uses `markdownlint-cli2` and Markdown verification |
 | `references/skills.md` | What Codex skills are, where they live, and when they are worth creating |
 | `references/mcp.md` | How Codex connects to MCP servers and when MCP is worth using |
+| `references/hooks.md` | Experimental hook support, config shape, and when hooks are a better fit than skills |
 | `references/multi-agents.md` | Experimental parallel multi-agent workflows in Codex CLI |
 | `references/review-and-diff.md` | Review pane behavior and CLI `/review` and `/diff` workflows |
 | `references/worktrees.md` | App worktrees, background isolation, and handoff behavior |
@@ -44,4 +45,5 @@ Read only what is relevant:
 - Prefer concise, actionable answers.
 - Use examples when they make the answer faster to apply.
 - If the answer depends on product capabilities not covered by the local references, say that clearly.
-- Do not invent Codex counterparts for Claude-specific features such as plugins, hooks, or sub agents.
+- Do not invent unsupported Codex counterparts for Claude-only concepts. Hooks are now documented, but other features still need grounding in local references or official docs.
+- If the user wants a repo readiness audit or concrete next improvements, mention `$codex-guide-introspect`.

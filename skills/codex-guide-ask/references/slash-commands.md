@@ -1,3 +1,9 @@
+---
+title: Slash commands
+parent: Working with Codex
+nav_order: 2
+---
+
 # Slash commands
 
 Codex CLI has a built-in slash-command surface for steering an interactive session without leaving the terminal.

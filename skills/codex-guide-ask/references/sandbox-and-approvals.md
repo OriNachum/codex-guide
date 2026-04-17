@@ -1,3 +1,9 @@
+---
+title: Sandbox and approvals
+parent: Configuration and Safety
+nav_order: 4
+---
+
 # Sandbox and approvals
 
 Codex does not operate as an unrestricted shell by default. Command execution

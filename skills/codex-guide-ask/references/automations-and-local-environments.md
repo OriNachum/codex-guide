@@ -1,6 +1,14 @@
+---
+title: Automations and local environments
+parent: Advanced Workflows
+nav_order: 5
+---
+
 # Automations and local environments
 
-Codex app automations and local environments are related but different.
+Codex app automations, hooks, and local environments are related but different.
+
+For the official hooks surface, see [hooks.md](hooks.md).
 
 ## Automations
 
@@ -28,6 +36,17 @@ The overlap is conceptual: both are useful for recurring unattended checks.
 Use app automations when the work should stay close to your local project and
 app workflow. Use GitHub Actions when the task belongs in repository CI.
 
+## Hooks vs automations
+
+Hooks are not scheduled tasks.
+
+- hooks run inline at lifecycle events such as `SessionStart`, `PreToolUse`,
+  `PostToolUse`, `UserPromptSubmit`, and `Stop`
+- automations run background tasks on a schedule in the Codex app
+
+Use hooks when the behavior should fire during the session itself. Use
+automations when the work should happen later or repeatedly over time.
+
 ## Local environments
 
 Local environments define project-specific setup steps and common actions.
@@ -48,6 +67,7 @@ execution environment.
 ## Why the distinction matters
 
 - automations are for recurring unattended tasks
+- hooks are for deterministic inline lifecycle automation
 - local environments are for preparing and operating the project consistently
 
 They fit together well, but they solve different problems.

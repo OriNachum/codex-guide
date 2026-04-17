@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Introspect"
+  short_description: "Audit a repo's Codex readiness and propose the next improvements"
+  default_prompt: "Use $codex-guide-introspect to inspect this repository, summarize the main gaps, and propose the next few high-value improvements."

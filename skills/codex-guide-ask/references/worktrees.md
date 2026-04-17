@@ -1,3 +1,9 @@
+---
+title: Worktrees
+parent: Advanced Workflows
+nav_order: 3
+---
+
 # Worktrees
 
 The Codex app uses Git worktrees to let Codex work on parallel tasks without

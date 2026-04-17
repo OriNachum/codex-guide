@@ -1,3 +1,9 @@
+---
+title: Skills
+parent: Working with Codex
+nav_order: 4
+---
+
 # Skills
 
 Codex skills are reusable instruction bundles that let you package a workflow,
