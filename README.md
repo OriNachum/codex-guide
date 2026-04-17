@@ -63,6 +63,7 @@ Useful commands:
 bundle exec jekyll build
 markdownlint-cli2 "**/*.md"
 python3 scripts/validate-docs.py
+uv run --with pytest pytest
 ```
 
 ## Publishing model

@@ -19,6 +19,7 @@ Use these baseline commands while contributing:
 - `bundle exec jekyll build` - verify the published site builds with the repo's Jekyll stack.
 - `markdownlint-cli2 "**/*.md"` - lint Markdown; `markdownlint-cli2` auto-loads the repo default config from `.markdownlint-cli2.yaml`.
 - `python3 scripts/validate-docs.py` - verify skill structure and local Markdown links.
+- `uv run --with pytest pytest` - run the Python test suite for repo scripts and PR-review helpers.
 - `vale .` - optional prose/style linting if configured locally.
 
 If you introduce tooling (e.g., `Makefile`, npm scripts), document it in `README.md` and keep command names explicit (`test`, `lint`, `build`).

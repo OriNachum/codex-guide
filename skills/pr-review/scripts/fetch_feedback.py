@@ -6,8 +6,8 @@ import argparse
 import json
 import subprocess
 import sys
-from dataclasses import dataclass
 
+NONE_FOUND = "- none"
 
 def run_gh(args: list[str]) -> str:
     result = subprocess.run(
@@ -210,6 +210,57 @@ def build_report(repo: str, pr_number: int) -> dict:
     }
 
 
+def append_check_lines(lines: list[str], checks: list[dict]) -> None:
+    if not checks:
+        lines.append(NONE_FOUND)
+        return
+
+    for check in checks:
+        lines.append(
+            f"- `{check['name']}`: `{check['status']}` / `{check['conclusion']}`"
+            + (f" ({check['detailsUrl']})" if check.get("detailsUrl") else "")
+        )
+
+
+def append_comment_lines(lines: list[str], comments: list[dict]) -> None:
+    if not comments:
+        lines.append(NONE_FOUND)
+        return
+
+    for comment in comments:
+        lines.append(f"- `{comment['source']}` by `{comment['author']}`: {comment['url']}")
+
+
+def append_inline_comment_lines(lines: list[str], comments: list[dict]) -> None:
+    if not comments:
+        lines.append(NONE_FOUND)
+        return
+
+    for comment in comments:
+        lines.append(
+            f"- `{comment['source']}` `{comment['path']}:{comment['line']}`"
+            f" comment_id={comment['id']} {comment['url']}"
+        )
+
+
+def append_review_thread_lines(lines: list[str], threads: list[dict]) -> None:
+    if not threads:
+        lines.append(NONE_FOUND)
+        return
+
+    for thread in threads:
+        state = "resolved" if thread["isResolved"] else "open"
+        first = thread["comments"][0] if thread["comments"] else {}
+        path = first.get("path", "?")
+        line = first.get("line", "?")
+        comment_id = first.get("commentId", "?")
+        source = first.get("source", "github")
+        lines.append(
+            f"- `{source}` `{path}:{line}` thread_id={thread['id']} "
+            f"comment_id={comment_id} state={state}"
+        )
+
+
 def markdown_report(report: dict) -> str:
     lines: list[str] = []
     pr = report["pr"]
@@ -221,49 +272,16 @@ def markdown_report(report: dict) -> str:
     lines.append(f"- State: `{pr['state']}` draft=`{pr['isDraft']}`")
     lines.append("")
     lines.append("## Status checks")
-    if report["checks"]:
-        for check in report["checks"]:
-            lines.append(
-                f"- `{check['name']}`: `{check['status']}` / `{check['conclusion']}`"
-                + (f" ({check['detailsUrl']})" if check.get("detailsUrl") else "")
-            )
-    else:
-        lines.append("- none")
+    append_check_lines(lines, report["checks"])
     lines.append("")
     lines.append("## Top-level comments")
-    if report["topLevelComments"]:
-        for comment in report["topLevelComments"]:
-            lines.append(
-                f"- `{comment['source']}` by `{comment['author']}`: {comment['url']}"
-            )
-    else:
-        lines.append("- none")
+    append_comment_lines(lines, report["topLevelComments"])
     lines.append("")
     lines.append("## Inline comments")
-    if report["inlineComments"]:
-        for comment in report["inlineComments"]:
-            lines.append(
-                f"- `{comment['source']}` `{comment['path']}:{comment['line']}`"
-                f" comment_id={comment['id']} {comment['url']}"
-            )
-    else:
-        lines.append("- none")
+    append_inline_comment_lines(lines, report["inlineComments"])
     lines.append("")
     lines.append("## Review threads")
-    if report["reviewThreads"]:
-        for thread in report["reviewThreads"]:
-            state = "resolved" if thread["isResolved"] else "open"
-            first = thread["comments"][0] if thread["comments"] else {}
-            path = first.get("path", "?")
-            line = first.get("line", "?")
-            comment_id = first.get("commentId", "?")
-            source = first.get("source", "github")
-            lines.append(
-                f"- `{source}` `{path}:{line}` thread_id={thread['id']} "
-                f"comment_id={comment_id} state={state}"
-            )
-    else:
-        lines.append("- none")
+    append_review_thread_lines(lines, report["reviewThreads"])
     return "\n".join(lines)
 
 

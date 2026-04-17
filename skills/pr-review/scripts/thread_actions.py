@@ -6,15 +6,15 @@ import argparse
 import json
 import pathlib
 import subprocess
-import sys
 
 
-def run_gh(args: list[str]) -> str:
+def run_gh(args: list[str], *, input_text: str | None = None) -> str:
     result = subprocess.run(
         ["gh", *args],
         check=True,
         capture_output=True,
         text=True,
+        input=input_text,
     )
     return result.stdout
 
@@ -71,17 +71,17 @@ query($owner: String!, $name: String!, $number: Int!) {
 
 
 def reply_inline(repo: str, pr_number: int, comment_id: int, body: str) -> None:
-    subprocess.run(
+    payload = json.dumps({"body": body})
+    run_gh(
         [
-            "gh",
             "api",
             "-X",
             "POST",
             f"repos/{repo}/pulls/{pr_number}/comments/{comment_id}/replies",
-            "-f",
-            f"body={body}",
+            "--input",
+            "-",
         ],
-        check=True,
+        input_text=payload,
     )
 
 
@@ -96,18 +96,47 @@ mutation($threadId: ID!) {
   }
 }
 """
-    subprocess.run(
+    run_gh(
         [
-            "gh",
             "api",
             "graphql",
             "-f",
             f"query={mutation}",
             "-F",
             f"threadId={thread_id}",
-        ],
-        check=True,
+        ]
     )
+
+
+def batch_reply_and_resolve(repo: str, pr_number: int, payload_path: str) -> int:
+    payload = json.loads(pathlib.Path(payload_path).read_text(encoding="utf-8"))
+    for item in payload:
+        comment_id = int(item["comment_id"])
+        body = item["body"]
+        thread_id = thread_id_for_comment(repo, pr_number, comment_id)
+        reply_inline(repo, pr_number, comment_id, body)
+        resolve_thread(thread_id)
+    return 0
+
+
+def handle_command(args: argparse.Namespace) -> int:
+    repo = args.repo or current_repo()
+
+    if args.command == "reply-inline":
+        reply_inline(repo, args.pr, args.comment_id, args.body)
+        return 0
+
+    if args.command == "reply-and-resolve-batch":
+        return batch_reply_and_resolve(repo, args.pr, args.file)
+
+    thread_id = thread_id_for_comment(repo, args.pr, args.comment_id)
+    if args.command == "resolve-thread":
+        resolve_thread(thread_id)
+        return 0
+
+    reply_inline(repo, args.pr, args.comment_id, args.body)
+    resolve_thread(thread_id)
+    return 0
 
 
 def main() -> int:
@@ -122,7 +151,7 @@ def main() -> int:
     reply = subparsers.add_parser("reply-inline", parents=[shared])
     reply.add_argument("--body", required=True)
 
-    resolve = subparsers.add_parser("resolve-thread", parents=[shared])
+    subparsers.add_parser("resolve-thread", parents=[shared])
 
     both = subparsers.add_parser("reply-and-resolve", parents=[shared])
     both.add_argument("--body", required=True)
@@ -132,31 +161,7 @@ def main() -> int:
     batch.add_argument("--pr", type=int, required=True)
     batch.add_argument("--file", required=True)
 
-    args = parser.parse_args()
-    repo = args.repo or current_repo()
-
-    if args.command == "reply-inline":
-        reply_inline(repo, args.pr, args.comment_id, args.body)
-        return 0
-
-    if args.command == "reply-and-resolve-batch":
-        payload = json.loads(pathlib.Path(args.file).read_text(encoding="utf-8"))
-        for item in payload:
-            comment_id = int(item["comment_id"])
-            body = item["body"]
-            thread_id = thread_id_for_comment(repo, args.pr, comment_id)
-            reply_inline(repo, args.pr, comment_id, body)
-            resolve_thread(thread_id)
-        return 0
-
-    thread_id = thread_id_for_comment(repo, args.pr, args.comment_id)
-    if args.command == "resolve-thread":
-        resolve_thread(thread_id)
-        return 0
-
-    reply_inline(repo, args.pr, args.comment_id, args.body)
-    resolve_thread(thread_id)
-    return 0
+    return handle_command(parser.parse_args())
 
 
 if __name__ == "__main__":
