@@ -12,10 +12,11 @@ When adding content, keep files at the root only when they are top-level guides.
 
 ## Build, Test, and Development Commands
 
-There is no build pipeline yet. Use these baseline commands while contributing:
+Use these baseline commands while contributing:
 
 - `git status` - check local changes before and after edits.
 - `git diff` - review exact modifications.
+- `bundle exec jekyll build` - verify the published site builds with the repo's Jekyll stack.
 - `markdownlint-cli2 "**/*.md"` - lint Markdown; `markdownlint-cli2` auto-loads the repo default config from `.markdownlint-cli2.yaml`.
 - `python3 scripts/validate-docs.py` - verify skill structure and local Markdown links.
 - `vale .` - optional prose/style linting if configured locally.
@@ -28,6 +29,7 @@ If you introduce tooling (e.g., `Makefile`, npm scripts), document it in `README
 - Keep sections short, actionable, and scannable.
 - Use sentence case for paragraph text and consistent title case for headings.
 - Prefer kebab-case for new file names (example: `quick-start.md`).
+- Keep platform-required filenames such as `Gemfile`, `CNAME`, and `_config.yml` when the toolchain expects them.
 - Wrap commands, paths, and identifiers in backticks.
 
 ## Testing Guidelines
@@ -46,6 +48,7 @@ Git history is minimal (`Initial commit`), so use a clear, imperative commit sty
 
 - Commit format: `docs: add contributor workflow section`
 - Keep commits focused to one logical change.
+- Keep `main` as the stable baseline. Do active implementation, feedback cleanup, and PR review iteration on the current feature or PR branch until the branch is clean enough to merge.
 
 PRs should include:
 
