@@ -1,3 +1,9 @@
+---
+title: Review and diff
+parent: Advanced Workflows
+nav_order: 2
+---
+
 # Review and diff
 
 Codex supports both CLI and app review flows.

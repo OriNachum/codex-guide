@@ -1,3 +1,9 @@
+---
+title: Non-interactive mode and GitHub Action
+parent: Advanced Workflows
+nav_order: 6
+---
+
 # Non-interactive mode and GitHub Action
 
 Codex has an official non-interactive path for automation and an official GitHub Action for CI workflows.

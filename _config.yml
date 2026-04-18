@@ -1,0 +1,56 @@
+title: Codex Guide
+description: >-
+  Community guide to Codex with practical docs, skills, and real-repo exercises.
+baseurl: ""
+url: "https://codex.agentic-guides.com"
+
+theme: just-the-docs
+color_scheme: nil
+
+search_enabled: true
+search:
+  button: true
+
+aux_links:
+  "GitHub":
+    - "https://github.com/OriNachum/codex-guide"
+aux_links_new_tab: true
+
+footer_content: >-
+  Codex is a product from OpenAI. This guide is a community project and is not
+  an official OpenAI property. Licensed under
+  <a href="https://github.com/OriNachum/codex-guide/blob/main/LICENSE">CC BY 4.0</a>.
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-relative-links
+  - jekyll-sitemap
+
+relative_links:
+  enabled: true
+  collections: false
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+exclude:
+  - .github/
+  - .qodo/
+  - .git/
+  - AGENTS.md
+  - LICENSE
+  - PRIVACY.md
+  - README.md
+  - scripts/
+  - docs/claude-to-codex-conversion-plan.md
+  - docs/codex-feature-expansion-checklist.md
+  - docs/openai-docs-gap-summary.md
+  - skills/codex-guide-onboarding/SKILL.md
+  - skills/codex-guide-onboarding/agents/
+  - skills/codex-guide-introspect/SKILL.md
+  - skills/codex-guide-introspect/agents/
+  - skills/codex-guide-ask/SKILL.md
+  - skills/codex-guide-ask/agents/

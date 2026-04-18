@@ -1,3 +1,9 @@
+---
+title: Best practices
+parent: Working with Codex
+nav_order: 3
+---
+
 # Best practices
 
 Codex works best when the task is concrete, the repo instructions are clear, and verification is easy.

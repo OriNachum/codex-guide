@@ -1,3 +1,9 @@
+---
+title: Working with Codex Reference
+parent: Working with Codex
+nav_order: 1
+---
+
 # Working with Codex
 
 The most reliable way to work with Codex is to treat it like a fast repo-aware engineer that still benefits from supervision, clear constraints, and feedback loops.

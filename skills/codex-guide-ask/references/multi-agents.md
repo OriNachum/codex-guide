@@ -1,3 +1,9 @@
+---
+title: Multi-agents
+parent: Advanced Workflows
+nav_order: 4
+---
+
 # Multi-agents
 
 Codex has an experimental multi-agent workflow in the CLI.

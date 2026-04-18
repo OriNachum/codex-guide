@@ -1,3 +1,9 @@
+---
+title: Config and trust
+parent: Configuration and Safety
+nav_order: 3
+---
+
 # Config and trust
 
 Codex stores user-level configuration in `~/.codex/config.toml` and can load project-specific overrides from `.codex/config.toml`.

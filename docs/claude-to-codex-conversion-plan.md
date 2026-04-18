@@ -1,5 +1,8 @@
 # Claude to Codex conversion plan
 
+> Historical note: this plan was written before Codex hooks were officially
+> documented. Treat any "no hooks equivalent" statements below as outdated.
+
 ## Goal
 
 Convert `../claude-code-guide` from a Claude Code plugin into a Codex-native guide repo that helps new users onboard to Codex and use Codex itself as the guide.

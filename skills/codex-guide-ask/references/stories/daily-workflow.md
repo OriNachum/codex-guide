@@ -1,3 +1,9 @@
+---
+title: Daily workflow
+parent: Stories
+nav_order: 2
+---
+
 # Daily workflow
 
 ## Morning: establish context

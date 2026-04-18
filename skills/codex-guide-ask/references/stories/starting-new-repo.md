@@ -1,3 +1,9 @@
+---
+title: Starting in a new repo
+parent: Stories
+nav_order: 1
+---
+
 # Starting in a new repo
 
 ## The situation

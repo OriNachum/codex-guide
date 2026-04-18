@@ -1,3 +1,9 @@
+---
+title: Markdown verification
+parent: Working with Codex
+nav_order: 5
+---
+
 # Markdown verification
 
 Markdown linting is part of the repo verification loop for this guide.

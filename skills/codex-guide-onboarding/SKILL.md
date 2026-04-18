@@ -75,10 +75,12 @@ Teach the habits that matter early:
 - If the repo already exists, ground the onboarding in the actual files and commands you can inspect.
 - If the user seems new, offer to draft or improve `AGENTS.md` immediately.
 - If they ask a detailed Codex question that depends on local guide docs, suggest using `$codex-guide-ask`.
+- If they want to improve the repo after the first successful task, suggest `$codex-guide-introspect` or the exercises under `docs/exercises/`.
 - If the user asks about commands, config, MCP, review, automations, or multi-agent behavior, rely on the ask skill and its references rather than improvising.
 
 ## Boundaries
 
 - Do not claim support for Codex features unless they are visible in the local environment or local guide references.
-- Do not invent plugin, marketplace, hook, or sub-agent features for Codex.
+- Treat hooks as documented but experimental. Do not overstate their coverage or maturity.
+- Do not invent plugin, marketplace, or sub-agent features for Codex.
 - Keep the onboarding focused on getting productive safely in a real repo.

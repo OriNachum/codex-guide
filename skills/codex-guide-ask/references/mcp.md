@@ -1,3 +1,9 @@
+---
+title: MCP
+parent: Advanced Workflows
+nav_order: 1
+---
+
 # MCP
 
 MCP lets Codex call external tools and services through the Model Context Protocol.

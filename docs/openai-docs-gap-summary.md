@@ -16,12 +16,14 @@ The guide now covers official Codex docs for:
 
 It also corrects the skill install story to use the documented `.agents/skills` locations rather than treating the local `~/.codex/skills` layout as canonical.
 
+The guide also now acknowledges the official Codex hooks surface and links to
+the OpenAI hooks documentation, while keeping hooks framed as experimental.
+
 ## Still intentionally missing
 
 The guide still does not claim parity for features that are documented in Claude but not documented as Codex counterparts:
 
 - Claude plugin packaging and marketplace flows
-- Claude hooks
 - any undocumented one-to-one Codex replacement for those features
 
 That omission is intentional.

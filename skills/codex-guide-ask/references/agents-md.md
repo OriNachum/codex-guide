@@ -1,3 +1,9 @@
+---
+title: AGENTS.md
+parent: Configuration and Safety
+nav_order: 1
+---
+
 # AGENTS.md
 
 `AGENTS.md` is the main place to tell Codex how to work in a repository.
