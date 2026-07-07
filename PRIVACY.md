@@ -40,7 +40,7 @@ However, when you use Codex, the underlying Codex product and any tools you enab
 
 ## Open Source
 
-The full source is publicly available at [https://github.com/orinachum/codex-guide](https://github.com/orinachum/codex-guide) under the CC BY 4.0 license. You can inspect every file included in the repository.
+The full source is publicly available at [https://github.com/orinachum/codex-guide](https://github.com/orinachum/codex-guide) under the Apache License 2.0. You can inspect every file included in the repository.
 
 ## Changes to This Policy
 

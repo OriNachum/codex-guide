@@ -117,5 +117,5 @@ The Codex workflows require:
 
 ## License
 
-CC BY 4.0 - see [LICENSE](LICENSE) for details. Privacy notes for the
+Apache License 2.0 - see [LICENSE](LICENSE) for details. Privacy notes for the
 repository contents are in [PRIVACY.md](PRIVACY.md).
